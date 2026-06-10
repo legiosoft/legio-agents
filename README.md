@@ -27,12 +27,13 @@ In AI beta workflows, these files help make agent behavior repeatable:
 ## Skill Set
 
 - React: structure and conventions for Vite React TypeScript applications with feature-first organization.
-- DotNet: reserved placeholder for .NET service structure and conventions.
+- DotNet: .NET backend host structure, Minimal API conventions, persistence
+  boundaries, and NodaTime date/time guidance.
 
 ## Files
 
 - [react/AGENTS.md](react/AGENTS.md): reusable React frontend guidance.
-- [dotnet/AGENTS.md](dotnet/AGENTS.md): empty placeholder for future .NET guidance.
+- [dotnet/AGENTS.md](dotnet/AGENTS.md): reusable .NET backend guidance.
 
 ## Authoring Rules
 
