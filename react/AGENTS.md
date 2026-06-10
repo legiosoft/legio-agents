@@ -2,6 +2,8 @@
 
 These instructions define a reusable structure for Vite React TypeScript applications that use a feature-first frontend architecture.
 
+This file captures LegioSoft frontend architecture patterns for AI-assisted development. It should guide agents toward maintainable project structure without referencing private projects or local machine paths. For more about LegioSoft, visit [legiosoft.net](https://legiosoft.net/).
+
 The purpose of this file is to help AI agents place new code in the correct folder, preserve ownership boundaries, and avoid turning the project into a flat collection of unrelated components and helpers.
 
 ## Core Architecture
