@@ -177,6 +177,47 @@ there is real reuse.
 Follow normal .NET backend conventions: dependency injection, options-based
 configuration, typed services, async I/O, and clear API contracts.
 
+## Date, Time, And Time Zones
+
+Use NodaTime for date, time, and time zone handling. Do not introduce
+`DateTime`, `DateTimeOffset`, or `TimeSpan` in new domain logic, API contracts,
+persistence models, scheduling code, or business rules when a NodaTime type can
+represent the value.
+
+Prefer these NodaTime types:
+
+- `Instant`: an exact UTC point in time, such as audit timestamps, event times,
+  token expirations, and background job markers.
+- `LocalDate`: a calendar date without a time or zone, such as birthdays,
+  service dates, and reporting dates.
+- `LocalTime`: a wall-clock time without a date or zone, such as daily schedule
+  times.
+- `LocalDateTime`: a local calendar date and time only when the time zone is
+  stored or supplied separately.
+- `ZonedDateTime`: a local date and time combined with a real time zone for
+  scheduling, conversion, and user-facing calculations.
+- `Duration` or `Period`: elapsed time or calendar-based amounts, depending on
+  whether the value is exact duration or date/calendar arithmetic.
+- `DateTimeZone`: a time zone. Store IANA time zone IDs, not raw offsets or
+  local machine time zone assumptions.
+
+Use `IClock` for current time. Do not call `DateTime.Now`, `DateTime.UtcNow`,
+`DateTime.Today`, or equivalent local-system clock APIs in application code.
+
+Configure serialization and persistence for NodaTime instead of converting
+through `DateTime`:
+
+- For `System.Text.Json`, use `NodaTime.Serialization.SystemTextJson`.
+- For PostgreSQL with EF Core/Npgsql, enable the NodaTime mappings such as
+  `UseNodaTime()`.
+- Keep provider-specific conversions at the infrastructure boundary when a
+  database provider or external SDK has no native NodaTime support.
+
+Only use `DateTime`, `DateTimeOffset`, or `TimeSpan` for unavoidable
+third-party, framework, or BCL interop. Keep those conversions close to the
+boundary, convert immediately to NodaTime types, and do not let BCL temporal
+types leak into domain or endpoint contracts.
+
 Prefer simple, readable C# over compact or clever code. Use `if`/`else` when it
 is easier to read than a ternary expression. Avoid nested ternaries.
 
