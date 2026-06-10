@@ -1,8 +1,16 @@
-# legio-agents
+# LegioSoft Agents
 
-Reusable `AGENTS.md` instruction sets for AI coding agents.
+[![LegioSoft logo](images/dark%20purple%20logo.png)](https://legiosoft.net/)
 
-This repository stores project-agnostic agent guidance by technology stack. The goal is to give AI agents enough structure to make code changes that fit the intended architecture without exposing private repository names, paths, secrets, or local machine details.
+Reusable `AGENTS.md` instruction sets for AI coding agents, based on LegioSoft architecture patterns.
+
+This repository stores project-agnostic agent guidance by technology stack. The goal is to give AI agents enough structure to make code changes that follow [LegioSoft](https://legiosoft.net/) engineering conventions without exposing private repository names, paths, secrets, or local machine details.
+
+## About LegioSoft Agents
+
+LegioSoft Agents represent reusable software architecture patterns used by LegioSoft teams when building production applications. They are not tied to one private project. Each instruction file captures a durable way to organize code, separate responsibilities, and verify changes for a specific technology stack.
+
+These files are designed for AI-assisted development workflows where agents need clear architectural boundaries before editing code. Learn more about LegioSoft and its software engineering work at [legiosoft.net](https://legiosoft.net/).
 
 ## What AGENTS.md Is
 
@@ -35,3 +43,7 @@ When adding or updating an agent file:
 - Keep instructions specific enough to guide edits, but generic enough to reuse across projects.
 - Prefer stable architecture rules over taste-based preferences.
 - Include verification commands when they are common to the stack.
+
+## Website
+
+For company information, services, and related engineering work, visit [LegioSoft software development](https://legiosoft.net/).
